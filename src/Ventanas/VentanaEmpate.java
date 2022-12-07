@@ -13,9 +13,12 @@ public class VentanaEmpate extends javax.swing.JFrame {
     /**
      * Creates new form VentanaEmpate
      */
-    public VentanaEmpate() {
+    private VentanaPrincipal ventana;
+
+    public VentanaEmpate(VentanaPrincipal ventana) {
         initComponents();
         setLocationRelativeTo(null);
+        this.ventana = ventana;
     }
 
     /**
@@ -55,7 +58,7 @@ public class VentanaEmpate extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Empate");
+        jLabel1.setText("¡Empate!");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 506, -1));
 
         lbDraw.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/draw.gif"))); // NOI18N
@@ -83,6 +86,7 @@ public class VentanaEmpate extends javax.swing.JFrame {
     private void btnJugarDeNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJugarDeNuevoActionPerformed
         // TODO add your handling code here:
         dispose();
+        ventana.quienJuegaPrimero();
     }//GEN-LAST:event_btnJugarDeNuevoActionPerformed
 
     /**
@@ -115,7 +119,7 @@ public class VentanaEmpate extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VentanaEmpate().setVisible(true);
+                new VentanaEmpate(null).setVisible(true);
             }
         });
     }

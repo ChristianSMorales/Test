@@ -4,6 +4,8 @@
  */
 package Ventanas;
 
+import javax.swing.JButton;
+
 /**
  *
  * @author chris
@@ -14,9 +16,12 @@ public class VentanaGanador extends javax.swing.JFrame {
      * Creates new form VentanaGanador
      */
     private String usuario;
-    public VentanaGanador(String usuario) {
+    private VentanaPrincipal ventana;
+    public VentanaGanador( String usuario, VentanaPrincipal ventana) {
         this.usuario=usuario;
         initComponents();
+        setLocationRelativeTo(null);
+        this.ventana=ventana;
     }
 
     /**
@@ -29,28 +34,29 @@ public class VentanaGanador extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        lbShow = new javax.swing.JLabel();
+        btnJugarDenuevo = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         lbWinner = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 30)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbWinner.setText("¡Felicidades! "+usuario);
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 400, -1));
+        lbShow.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 30)); // NOI18N
+        lbShow.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbShow.setText("¡Felicidades! "+usuario);
+        jPanel1.add(lbShow, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 390, 40));
 
-        jButton1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jButton1.setText("Jugar de nuevo");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnJugarDenuevo.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        btnJugarDenuevo.setText("Jugar de nuevo");
+        btnJugarDenuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnJugarDenuevoActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 200, -1, -1));
+        jPanel1.add(btnJugarDenuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 200, -1, -1));
 
         jButton2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jButton2.setText("Salir");
@@ -68,11 +74,11 @@ public class VentanaGanador extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -82,11 +88,15 @@ public class VentanaGanador extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-      dispose();
-      
-    }//GEN-LAST:event_jButton1ActionPerformed
-
+    private void btnJugarDenuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJugarDenuevoActionPerformed
+      dispose(); 
+      ventana.quienJuegaPrimero();
+    }//GEN-LAST:event_btnJugarDenuevoActionPerformed
+    
+    public JButton getBtnJugarDenuevo() {
+        return btnJugarDenuevo;
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -117,16 +127,16 @@ public class VentanaGanador extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VentanaGanador(null).setVisible(true);
+                new VentanaGanador(null,null).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnJugarDenuevo;
     private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lbShow;
     private javax.swing.JLabel lbWinner;
     // End of variables declaration//GEN-END:variables
 }

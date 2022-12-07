@@ -4,6 +4,8 @@
  */
 package Ventanas;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author chris
@@ -110,6 +112,7 @@ public class VentanaInicial extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        if(!this.txtNombreUsuario1.getText().equals("") && !this.txtNombreUsuario2.getText().equals("")){
         usuario1=this.txtNombreUsuario1.getText();
         usuario2=this.txtNombreUsuario2.getText();
         btnGuardar.setVisible(false);
@@ -117,6 +120,9 @@ public class VentanaInicial extends javax.swing.JFrame {
         lbMostrarFichaA.setText(usuario1+ " jugará primero, su ficha es: X");
         lbMostrarFichaB.setText(usuario2+ " jugará primero, su ficha es: O");
         btnComenzarJuego.setEnabled(true);
+        }else{
+            JOptionPane.showMessageDialog(rootPane, "Nombres no validos, ingrese nuevos nombres");
+        }
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnComenzarJuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComenzarJuegoActionPerformed
