@@ -55,7 +55,7 @@ public class VentanaEmpate extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("¡Empate!");
+        jLabel1.setText("Empate");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 506, -1));
 
         lbDraw.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/draw.gif"))); // NOI18N
