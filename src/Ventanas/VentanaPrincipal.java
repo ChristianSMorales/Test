@@ -4,12 +4,17 @@
  */
 package Ventanas;
 
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+
 /**
  *
  * @author chris
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
-
+    private boolean casilla[][] =new boolean[3][3];
+    private int matriz[][] = new int [3][3];
+    private String turno = "usuario1";
     private String usuario1, usuario2;
 
     /**
@@ -21,6 +26,31 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         initComponents();
         setSize(600,600);
         setLocationRelativeTo(null);
+        llenarCasillas();
+        llenarMatriz();
+    }
+    
+    private void llenarCasillas(){
+        for(int i=0;i<3;i++){
+            for(int j=0; j<3;j++){
+                casilla[i][j]=true;
+            }
+        }
+    }
+    private void llenarMatriz(){
+        for(int i=0;i<3;i++){
+            for(int j=0; j<3;j++){
+                matriz[i][j]=0;
+            }
+        }
+    }
+    
+    private void dibujarX(JButton boton){
+        boton.setIcon(new ImageIcon(getClass().getResource("/Imagenes/x.png")));
+    }
+    
+    private void dibujarO(JButton boton){
+        boton.setIcon(new ImageIcon(getClass().getResource("/Imagenes/o.png")));
     }
 
     /**
@@ -53,14 +83,68 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setLayout(new java.awt.GridLayout(3, 3));
+
+        btn00.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn00ActionPerformed(evt);
+            }
+        });
         jPanel1.add(btn00);
+
+        btn01.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn01ActionPerformed(evt);
+            }
+        });
         jPanel1.add(btn01);
+
+        btn02.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn02ActionPerformed(evt);
+            }
+        });
         jPanel1.add(btn02);
+
+        btn10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn10ActionPerformed(evt);
+            }
+        });
         jPanel1.add(btn10);
+
+        btn11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn11ActionPerformed(evt);
+            }
+        });
         jPanel1.add(btn11);
+
+        btn12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn12ActionPerformed(evt);
+            }
+        });
         jPanel1.add(btn12);
+
+        btn20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn20ActionPerformed(evt);
+            }
+        });
         jPanel1.add(btn20);
+
+        btn21.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn21ActionPerformed(evt);
+            }
+        });
         jPanel1.add(btn21);
+
+        btn22.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn22ActionPerformed(evt);
+            }
+        });
         jPanel1.add(btn22);
 
         menuJuego.setText("Juego");
@@ -99,11 +183,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 605, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 459, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 541, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
         );
 
         pack();
@@ -114,9 +198,212 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_menuJuegoActionPerformed
 
+    private void btn00ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn00ActionPerformed
+        // TODO add your handling code here:
+        if(casilla[0][0]==true){    //verificar que aun no se ha dado click sobre ese boton
+            if(turno.equalsIgnoreCase("usuario1")){    //verificar el turno del jugador
+                dibujarX(btn00);
+                matriz[0][0] =1;
+                turno="usuario2";// cambio de turno
+            }else{  //turno usuario 2
+                dibujarO(btn00);
+                matriz[0][0] =2;
+                turno="usuario1"; // cambio de turno
+            }
+        }
+        casilla[0][0] =false;
+        comprobarGanador();
+    }//GEN-LAST:event_btn00ActionPerformed
+
+    private void btn01ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn01ActionPerformed
+        // TODO add your handling code here:
+        if(casilla[0][1]==true){    //verificar que aun no se ha dado click sobre ese boton
+            if(turno.equalsIgnoreCase("usuario1")){    //verificar el turno del jugador
+                dibujarX(btn01);
+                matriz[0][1] =1;
+                turno="usuario2";// cambio de turno
+            }else{  //turno usuario 2
+                dibujarO(btn01);
+                matriz[0][1] =2;
+                turno="usuario1"; // cambio de turno
+            }
+        }
+        casilla[0][1] =false;
+        comprobarGanador();
+    }//GEN-LAST:event_btn01ActionPerformed
+
+    private void btn02ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn02ActionPerformed
+        // TODO add your handling code here:
+        if(casilla[0][2]==true){    //verificar que aun no se ha dado click sobre ese boton
+            if(turno.equalsIgnoreCase("usuario1")){    //verificar el turno del jugador
+                dibujarX(btn02);
+                matriz[0][2] =1;
+                turno="usuario2";// cambio de turno
+            }else{  //turno usuario 2
+                dibujarO(btn02);
+                matriz[0][2] =2;
+                turno="usuario1"; // cambio de turno
+            }
+        }
+        casilla[0][2] =false;
+        comprobarGanador();
+    }//GEN-LAST:event_btn02ActionPerformed
+
+    private void btn10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn10ActionPerformed
+        // TODO add your handling code here:
+        if(casilla[1][0]==true){    //verificar que aun no se ha dado click sobre ese boton
+            if(turno.equalsIgnoreCase("usuario1")){    //verificar el turno del jugador
+                dibujarX(btn10);
+                matriz[1][0] =1;
+                turno="usuario2";// cambio de turno
+            }else{  //turno usuario 2
+                dibujarO(btn10);
+                matriz[1][0] =2;
+                turno="usuario1"; // cambio de turno
+            }
+        }
+        casilla[1][0] =false;
+        comprobarGanador();
+    }//GEN-LAST:event_btn10ActionPerformed
+
+    private void btn11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn11ActionPerformed
+        // TODO add your handling code here:
+        if(casilla[1][1]==true){    //verificar que aun no se ha dado click sobre ese boton
+            if(turno.equalsIgnoreCase("usuario1")){    //verificar el turno del jugador
+                dibujarX(btn11);
+                matriz[1][1] =1;
+                turno="usuario2";// cambio de turno
+            }else{  //turno usuario 2
+                dibujarO(btn11);
+                matriz[1][1] =2;
+                turno="usuario1"; // cambio de turno
+            }
+        }
+        casilla[1][1] =false;
+        comprobarGanador();
+    }//GEN-LAST:event_btn11ActionPerformed
+
+    private void btn12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn12ActionPerformed
+        // TODO add your handling code here:
+        if(casilla[1][2]==true){    //verificar que aun no se ha dado click sobre ese boton
+            if(turno.equalsIgnoreCase("usuario1")){    //verificar el turno del jugador
+                dibujarX(btn12);
+                matriz[1][2] =1;
+                turno="usuario2";// cambio de turno
+            }else{  //turno usuario 2
+                dibujarO(btn12);
+                matriz[1][2] =2;
+                turno="usuario1"; // cambio de turno
+            }
+        }
+        casilla[1][2] =false;
+        comprobarGanador();
+    }//GEN-LAST:event_btn12ActionPerformed
+
+    private void btn20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn20ActionPerformed
+        // TODO add your handling code here:
+        if(casilla[2][0]==true){    //verificar que aun no se ha dado click sobre ese boton
+            if(turno.equalsIgnoreCase("usuario1")){    //verificar el turno del jugador
+                dibujarX(btn20);
+                matriz[2][0] =1;
+                turno="usuario2";// cambio de turno
+            }else{  //turno usuario 2
+                dibujarO(btn20);
+                matriz[2][0] =2;
+                turno="usuario1"; // cambio de turno
+            }
+        }
+        casilla[2][0] =false;
+        comprobarGanador();
+    }//GEN-LAST:event_btn20ActionPerformed
+
+    private void btn21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn21ActionPerformed
+        // TODO add your handling code here:
+        if(casilla[2][1]==true){    //verificar que aun no se ha dado click sobre ese boton
+            if(turno.equalsIgnoreCase("usuario1")){    //verificar el turno del jugador
+                dibujarX(btn21);
+                matriz[2][1] =1;
+                turno="usuario2";// cambio de turno
+            }else{  //turno usuario 2
+                dibujarO(btn21);
+                matriz[2][1] =2;
+                turno="usuario1"; // cambio de turno
+            }
+        }
+        casilla[2][1] =false;
+        comprobarGanador();
+    }//GEN-LAST:event_btn21ActionPerformed
+
+    private void btn22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn22ActionPerformed
+        // TODO add your handling code here:
+        if(casilla[2][2]==true){    //verificar que aun no se ha dado click sobre ese boton
+            if(turno.equalsIgnoreCase("usuario1")){    //verificar el turno del jugador
+                dibujarX(btn22);
+                matriz[2][2] =1;
+                turno="usuario2";// cambio de turno
+            }else{  //turno usuario 2
+                dibujarO(btn22);
+                matriz[2][2] =2;
+                turno="usuario1"; // cambio de turno
+            }
+        }
+        casilla[2][2] =false;
+        comprobarGanador();
+    }//GEN-LAST:event_btn22ActionPerformed
+
     /**
      * @param args the command line arguments
      */
+    
+    private void comprobarGanador(){
+        boolean ganador1 = false;
+        boolean ganador2 = false;
+        int empate=0;
+            //comprobar si el ganador es el usuario 1
+            ganador1 = comprobar(1);
+            //comprobar si el ganador es el usuario 2
+            ganador2 = comprobar(2);
+            
+            if(ganador1==true){
+                System.out.println("El ganador es el usuario 1");
+            }else if(ganador2==true){
+                System.out.println("El ganador es el usuario 2");
+            }else{
+                for(int i=0; i<3;i++){
+                    for(int j=0;j<3;j++){
+                        if(matriz[i][j]!=0){
+                            empate++;
+                        }
+                    }
+                }
+                if(empate==9){
+                    System.out.println("Empate");
+                }
+                empate=0;
+            }
+    }
+    
+    private boolean comprobar(int num){
+        boolean ganador =false;
+        if(matriz[0][0]==num && matriz[0][1]==num && matriz[0][2]==num){
+            ganador = true;
+        }else if(matriz[1][0]==num && matriz[1][1]==num && matriz[1][2]==num){
+            ganador = true;
+        }else if(matriz[2][0]==num && matriz[2][1]==num && matriz[2][2]==num){
+            ganador = true;
+        }else if(matriz[0][0]==num && matriz[1][0]==num && matriz[2][0]==num){
+            ganador = true;
+        }else if(matriz[0][1]==num && matriz[1][1]==num && matriz[2][1]==num){
+            ganador = true;
+        }else if(matriz[0][2]==num && matriz[1][2]==num && matriz[2][2]==num){
+            ganador = true;
+        }else if(matriz[2][2]==num && matriz[1][1]==num && matriz[2][2]==num){
+            ganador = true;
+        }else if(matriz[0][2]==num && matriz[1][1]==num && matriz[2][0]==num){
+            ganador = true;
+        }
+        return ganador;
+    }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
