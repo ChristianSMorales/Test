@@ -19,7 +19,6 @@ import javax.swing.JButton;
  * @author chris
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
-
     private boolean casilla[][] = new boolean[3][3];
     private int matriz[][] = new int[3][3];
     private String turno = "usuario1";
@@ -38,6 +37,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         llenarCasillas();
         llenarMatriz();
     }
+
 
     public String getUsuario1() {
         return usuario1;
@@ -297,6 +297,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void btn10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn10ActionPerformed
         // TODO add your handling code here:
+
         if (casilla[1][0] == true) {    //verificar que aun no se ha dado click sobre ese boton
             if (turno.equalsIgnoreCase("usuario1")) {    //verificar el turno del jugador
                 dibujarX(btn10);
@@ -331,6 +332,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void btn12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn12ActionPerformed
         // TODO add your handling code here:
+
         if (casilla[1][2] == true) {    //verificar que aun no se ha dado click sobre ese boton
             if (turno.equalsIgnoreCase("usuario1")) {    //verificar el turno del jugador
                 dibujarX(btn12);
@@ -365,6 +367,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void btn21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn21ActionPerformed
         // TODO add your handling code here:
+
         if (casilla[2][1] == true) {    //verificar que aun no se ha dado click sobre ese boton
             if (turno.equalsIgnoreCase("usuario1")) {    //verificar el turno del jugador
                 dibujarX(btn21);
@@ -382,6 +385,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void btn22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn22ActionPerformed
         // TODO add your handling code here:
+
         if (casilla[2][2] == true) {    //verificar que aun no se ha dado click sobre ese boton
             if (turno.equalsIgnoreCase("usuario1")) {    //verificar el turno del jugador
                 dibujarX(btn22);
@@ -488,6 +492,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         } else if (matriz[2][2] == num && matriz[1][1] == num && matriz[2][2] == num) {
             ganador = true;
         } else if (matriz[0][2] == num && matriz[1][1] == num && matriz[2][0] == num) {
+
             ganador = true;
         }
         return ganador;
@@ -514,6 +519,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         ventanaET.setVisible(true);
         turno = ventanaET.getTurno();
     }
+
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

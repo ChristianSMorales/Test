@@ -1,11 +1,12 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Ventanas;
 
 /**
  *
+
  * @author NoName
  */
 public class VentanaEscogerTurno extends javax.swing.JDialog {
@@ -16,6 +17,7 @@ public class VentanaEscogerTurno extends javax.swing.JDialog {
         super(parent, modal);
         this.usr1 = usr1;
         this.usr2 = usr2;
+
         initComponents();
     }
 
@@ -34,36 +36,13 @@ public class VentanaEscogerTurno extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        btnUsr2 = new javax.swing.JButton();
-        btnUsr1 = new javax.swing.JButton();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-
-        jLabel1.setFont(new java.awt.Font("Dialog", 0, 48)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("¿Quién juega primero?");
-
-        btnUsr2.setText(usr2);
-        btnUsr2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        btnUsr2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUsr2ActionPerformed(evt);
-            }
-        });
-
-        btnUsr1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        btnUsr1.setText(usr1);
-        btnUsr1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUsr1ActionPerformed(evt);
-            }
-        });
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 669, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -91,7 +70,6 @@ public class VentanaEscogerTurno extends javax.swing.JDialog {
         );
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnUsr1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsr1ActionPerformed
@@ -103,7 +81,6 @@ public class VentanaEscogerTurno extends javax.swing.JDialog {
         turno = "usuario2";
         dispose();
     }//GEN-LAST:event_btnUsr2ActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -131,7 +108,7 @@ public class VentanaEscogerTurno extends javax.swing.JDialog {
         }
         //</editor-fold>
 
-        /* Create and display the dialog */
+        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 VentanaEscogerTurno dialog = new VentanaEscogerTurno(new javax.swing.JFrame(), true, null,null);
@@ -147,8 +124,5 @@ public class VentanaEscogerTurno extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnUsr1;
-    private javax.swing.JButton btnUsr2;
-    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
