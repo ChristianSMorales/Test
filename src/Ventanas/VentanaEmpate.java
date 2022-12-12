@@ -13,9 +13,12 @@ public class VentanaEmpate extends javax.swing.JFrame {
     /**
      * Creates new form VentanaEmpate
      */
-    public VentanaEmpate() {
+    private VentanaPrincipal ventana;
+
+    public VentanaEmpate(VentanaPrincipal ventana) {
         initComponents();
         setLocationRelativeTo(null);
+        this.ventana = ventana;
     }
 
     /**
@@ -83,6 +86,7 @@ public class VentanaEmpate extends javax.swing.JFrame {
     private void btnJugarDeNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJugarDeNuevoActionPerformed
         // TODO add your handling code here:
         dispose();
+        ventana.quienJuegaPrimero();
     }//GEN-LAST:event_btnJugarDeNuevoActionPerformed
 
     /**
@@ -115,7 +119,7 @@ public class VentanaEmpate extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VentanaEmpate().setVisible(true);
+                new VentanaEmpate(null).setVisible(true);
             }
         });
     }

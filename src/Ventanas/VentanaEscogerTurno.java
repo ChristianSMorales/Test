@@ -6,17 +6,27 @@ package Ventanas;
 
 /**
  *
- * @author chris
- */
-public class VentanaEscogerTurno extends javax.swing.JFrame {
 
-    /**
-     * Creates new form VentanaEscogerTurno
-     */
-    public VentanaEscogerTurno() {
+ * @author NoName
+ */
+public class VentanaEscogerTurno extends javax.swing.JDialog {
+    private String usr1, usr2;
+    private String turno;
+    
+    public VentanaEscogerTurno(java.awt.Frame parent, boolean modal, String usr1, String usr2) {
+        super(parent, modal);
+        this.usr1 = usr1;
+        this.usr2 = usr2;
+
         initComponents();
     }
 
+    public String getTurno() {
+        return turno;
+    }
+
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -32,16 +42,45 @@ public class VentanaEscogerTurno extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 669, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnUsr2, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(114, 114, 114))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(146, 146, 146)
+                    .addComponent(btnUsr1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(366, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                .addComponent(btnUsr2, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(132, Short.MAX_VALUE)
+                    .addComponent(btnUsr1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(44, 44, 44)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnUsr1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsr1ActionPerformed
+        turno = "usuario1";
+        dispose();
+    }//GEN-LAST:event_btnUsr1ActionPerformed
+
+    private void btnUsr2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsr2ActionPerformed
+        turno = "usuario2";
+        dispose();
+    }//GEN-LAST:event_btnUsr2ActionPerformed
     /**
      * @param args the command line arguments
      */
@@ -72,7 +111,14 @@ public class VentanaEscogerTurno extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VentanaEscogerTurno().setVisible(true);
+                VentanaEscogerTurno dialog = new VentanaEscogerTurno(new javax.swing.JFrame(), true, null,null);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        System.exit(0);
+                    }
+                });
+                dialog.setVisible(true);
             }
         });
     }
